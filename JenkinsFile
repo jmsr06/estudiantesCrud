@@ -9,23 +9,20 @@ pipeline {
     stages {
         stage('Limpiar'){
             steps {
+                echo "limpiando"
                 sh "mvn clean"
             }
         }
         stage('Compilar'){
             steps {
+                 echo "compilando"
                 sh "mvn compile"
             }
         }
         stage('Test'){
             steps {
+                 echo "ejecutando pruebas"
                 sh "mvn test"
-            }
-        }
-        stage('Empaquetar'){
-            steps {
-
-                sh "mvn -Dmaven.test.failure.ignore=true package"
             }
         }
     }
